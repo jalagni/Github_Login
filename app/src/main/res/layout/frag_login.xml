@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="@dimen/margin"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+
+            android:textAlignment="center"
+            android:textSize="@dimen/header"
+            android:textStyle="bold"
+            android:text="@string/githubLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="@dimen/marginLarge"
+            android:textSize="@dimen/normal"
+            android:textStyle="bold"
+            android:text="@string/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textSize="@dimen/normal"
+            android:id="@+id/eUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/margin"
+            android:textSize="@dimen/small"
+            android:textStyle="bold"
+            android:text="@string/enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/marginSmall"
+            android:textSize="@dimen/normal"
+            android:textStyle="bold"
+            android:text="@string/token"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textSize="@dimen/normal"
+            android:id="@+id/eToken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/header"
+            android:textSize="@dimen/normal"
+            android:textStyle="bold"
+            android:text="@string/or"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textSize="@dimen/normal"
+            android:textStyle="bold"
+            android:text="@string/pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType ="textPassword"
+            android:textSize="@dimen/normal"
+            android:id="@+id/ePass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_marginTop="@dimen/margin"
+            android:layout_gravity="center"
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:text="@string/login" />
+
+    </LinearLayout>
+    </ScrollView>
+</layout>

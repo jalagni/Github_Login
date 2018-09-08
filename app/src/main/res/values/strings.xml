@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GithHub</string>
+    <string name="loading">Loading</string>
+    <string name="action">Click Action</string>
+    <string name="userName">Username</string>
+    <string name="pass">Password</string>
+    <string name="token">UserToken</string>
+    <string name="or">Or</string>
+    <string name="enter">Enter either Github App Token or Password to continue .</string>
+    <string name="login">Login</string>
+    <string name="enterUser">Username not filled.</string>
+    <string name="enterLoginDetail">Provide either token or password.</string>
+    <string name="githubLogin">Github Login</string>
+    <string name="loginInfo">Login Details:</string>
+    <string name="enterValidEmail">Provide valid email.</string>
+    <string name="closeConfirm">Are you sure you want to close this application?</string>
+</resources>
