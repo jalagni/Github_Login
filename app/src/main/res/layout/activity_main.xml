@@ -7,7 +7,7 @@
 <android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="learning.com.githhub.home.HomeActivity">
+    tools:context="com.githhub.home.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:visibility="gone"

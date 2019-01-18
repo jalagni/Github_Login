@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "learning.com.githhub"
+        applicationId "com.githhub"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
