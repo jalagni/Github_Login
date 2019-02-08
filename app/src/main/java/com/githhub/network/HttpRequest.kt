@@ -10,20 +10,14 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.http.Header
+import javax.inject.Inject
 
 /**
  * Created by mohankumar on 9/7/18.
  */
 
-class HttpRequest(val hCallBack:HttpCallBack): Callback<BaseModel> {
-
-    var hService:HttpService
-
-
-    init {
-        val retrofit: Retrofit = HttpUtils.getRetrofit();
-        this.hService = retrofit.create(HttpService::class.java)
-    }
+class HttpRequest(val hService:HttpService,
+                  val hCallBack:HttpCallBack): Callback<BaseModel> {
 
 
     fun loginUserWithToken(username:String,token:String){

@@ -9,3 +9,7 @@ Application Functionality :
   information of user will be displayed.
 
 - Test Case integrated
+
+
+// Implement Dagger
+// Implement RXJava

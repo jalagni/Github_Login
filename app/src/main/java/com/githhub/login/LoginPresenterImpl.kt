@@ -4,17 +4,31 @@ import android.content.Context
 import com.githhub.R
 import com.githhub.appModel.UserModel
 import com.githhub.base.BaseActivity
+import com.githhub.base.MainApp
 import com.githhub.network.HttpConst
 import com.githhub.network.HttpRequest
 import com.githhub.utils.AppUtils
 import timber.log.Timber
+import javax.inject.Inject
 
 /**
  * Created by mohankumar on 9/7/18.
  */
 
 class LoginPresenterImpl(val context: Context?,val hPresent: LoginPresenter): HttpRequest.HttpCallBack {
-    val  hRequest: HttpRequest = HttpRequest(this);
+
+    lateinit var  hRequest: HttpRequest;
+
+    @Inject
+    lateinit var hService: HttpRequest.HttpService;
+
+    init {
+
+        val mApp = context?.applicationContext as MainApp
+        mApp.aComponent.inject(this);
+
+        hRequest = HttpRequest(hService,this);
+    }
 
 
     fun loginAction(strUser:String,strToken:String,strPass:String):Boolean{

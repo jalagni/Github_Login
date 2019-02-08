@@ -2,6 +2,9 @@ package com.githhub.base
 
 import android.app.Application
 import com.githhub.BuildConfig
+import com.githhub.coreSupport.AppComponent
+import com.githhub.coreSupport.AppNetwork
+import com.githhub.coreSupport.DaggerAppComponent
 import timber.log.Timber
 
 /**
@@ -9,10 +12,21 @@ import timber.log.Timber
  */
 class MainApp: Application() {
 
+    lateinit var aComponent:AppComponent;
 
     override fun onCreate() {
         super.onCreate()
+
+        initApplication()
         initDevMode()
+    }
+
+    fun initApplication(){
+        aComponent = DaggerAppComponent.builder()
+                    .appNetwork(AppNetwork())
+                    .build()
+
+        aComponent.inject(this)
     }
 
 
@@ -21,6 +35,10 @@ class MainApp: Application() {
             return
 
         Timber.plant(Timber.DebugTree())
+    }
+
+    public fun getAppComponent():AppComponent{
+        return aComponent
     }
 
 }
