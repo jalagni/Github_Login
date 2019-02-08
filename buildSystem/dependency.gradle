@@ -1,0 +1,43 @@
+ext {
+
+    kaptVersion = '3.0.1'
+    designVersion = '27.1.1'
+    constraintVersion = '1.1.3'
+    retrofitVersion = '2.4.0'
+    timberVersion = '4.7.1'
+    okInterceptor = '3.9.0'
+    picassoVersion = '2.71828'
+    junitVersion = '4.12'
+    mockitoVersion = '2.21.0'
+    hamcrestVersion = '1.3'
+    espressoVersion = '3.0.2'
+    testRunnerVersion = '1.0.2'
+    testRulesVersion = '1.6.2'
+
+
+    kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlin_version}"
+    kotlinCompiler = "com.android.databinding:compiler:${kotlin_version}"
+    appCompat =  "com.android.support:appcompat-v7:${designVersion}"
+    supportDesign  = "com.android.support:design:${designVersion}"
+    constraintLayout =  "com.android.support.constraint:constraint-${constraintVersion}"
+
+    //Library
+    retroFit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    gson = "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    timber  = "com.jakewharton.timber:timber:${timberVersion}"
+    okLogging =  "com.squareup.okhttp3:logging-interceptor:${okInterceptor}"
+    picasso =  "com.squareup.picasso:picasso:${picassoVersion}"
+    circleView  =   "de.hdodenhof:circleimageview:2.2.0"
+
+    //Test Support
+    jUnit  =   "junit:junit:${junitVersion}"
+    testRunner =   "com.android.support.test:runner:${testRunnerVersion}"
+    mockito = "org.mockito:mockito-core:${mockitoVersion}"
+    mocitoAndroid  =  "org.mockito:mockito-android:${mockitoVersion}"
+    hamcrest  =  "org.hamcrest:hamcrest-library:${hamcrestVersion}"
+    esperesso  =  "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+    powerMock  =  "org.powermock:powermock-module-junit4:${testRulesVersion}"
+    powerMockRule  =  "org.powermock:powermock-module-junit4-rule:${testRulesVersion}"
+    powerMockApi  =  "org.powermock:powermock-api-mockito:${testRulesVersion}"
+    powerMockXstream  =  "org.powermock:powermock-classloading-xstream:${testRulesVersion}"
+}
