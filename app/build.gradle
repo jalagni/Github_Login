@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.githhub"
@@ -24,41 +25,41 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions{
+        abortOnError false
+    }
+
 }
 
 kapt {
     generateStubs = true
 }
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    kapt 'com.android.databinding:compiler:3.0.1'
 
-    //Android Base Support
-    kapt "com.android.databinding:compiler:3.0.1"
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    rootProject.app.each { item ->
+        add(item.configuration, item.dependency, item.options)
+    }
 
-    //Library
-    compile 'com.squareup.retrofit2:retrofit:2.4.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation 'com.jakewharton.timber:timber:4.7.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    rootProject.appSupport.each { item ->
+        add(item.configuration, item.dependency, item.options)
+    }
 
-    //Test Support
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    testCompile "org.mockito:mockito-core:2.+"
-    androidTestCompile 'org.mockito:mockito-android:2.7.22'
-    testCompile "org.robolectric:robolectric:3.3.2"
-    testImplementation 'org.hamcrest:hamcrest-library:1.3'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    testCompile "org.powermock:powermock-module-junit4:1.6.2"
-    testCompile "org.powermock:powermock-module-junit4-rule:1.6.2"
-    testCompile "org.powermock:powermock-api-mockito:1.6.2"
-    testCompile "org.powermock:powermock-classloading-xstream:1.6.2"
+    rootProject.annotationProcessorsDependencies.each { item ->
+        add(item.configuration, item.dependency, item.options)
+    }
+
+    rootProject.unitTestsDependencies.each { item ->
+        add(item.configuration, item.dependency, item.options)
+    }
+
+    rootProject.instrumentationTestsDependencies.each { item ->
+        add(item.configuration, item.dependency, item.options)
+    }
+
 }
 

@@ -13,13 +13,16 @@ ext {
     espressoVersion = '3.0.2'
     testRunnerVersion = '1.0.2'
     testRulesVersion = '1.6.2'
+    daggerVersion = '2.11'
 
-
-    kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlin_version}"
+    // Kotlin Compiler
     kotlinCompiler = "com.android.databinding:compiler:${kotlin_version}"
+    kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlin_version}"
+
+    //Support
     appCompat =  "com.android.support:appcompat-v7:${designVersion}"
     supportDesign  = "com.android.support:design:${designVersion}"
-    constraintLayout =  "com.android.support.constraint:constraint-${constraintVersion}"
+    constraintLayout =  "com.android.support.constraint:constraint-layout:${constraintVersion}"
 
     //Library
     retroFit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
@@ -40,4 +43,56 @@ ext {
     powerMockRule  =  "org.powermock:powermock-module-junit4-rule:${testRulesVersion}"
     powerMockApi  =  "org.powermock:powermock-api-mockito:${testRulesVersion}"
     powerMockXstream  =  "org.powermock:powermock-classloading-xstream:${testRulesVersion}"
+
+    //Dagger Support
+    daggerComplier  =  "com.google.dagger:dagger-compiler:$daggerVersion"
+    daggerProcessor  =  "com.google.dagger:dagger-android-processor:$daggerVersion"
+    dagger  =  "com.google.dagger:dagger:$daggerVersion"
+    daggerAndroid  =  "com.google.dagger:dagger-android:$daggerVersion"
+    daggerSupport  =  "com.google.dagger:dagger-android-support:$daggerVersion"
+
+    annotationProcessorsDependencies = [
+            [configuration: "kapt", dependency: kotlinCompiler],
+            [configuration: "kapt", dependency: daggerComplier],
+            [configuration: "kapt", dependency: daggerProcessor]
+    ]
+
+    appSupport = [
+            [configuration: "implementation", dependency: appCompat],
+            [configuration: "implementation", dependency: supportDesign],
+            [configuration: "implementation", dependency: constraintLayout]
+    ]
+
+    app = [
+            [configuration: "implementation", dependency: retroFit],
+            [configuration: "implementation", dependency: gson],
+            [configuration: "implementation", dependency: timber],
+            [configuration: "implementation", dependency: okLogging],
+            [configuration: "implementation", dependency: picasso],
+            [configuration: "implementation", dependency: circleView],
+            [configuration: "implementation", dependency: kotlin],
+
+            [configuration: "implementation", dependency: dagger],
+            [configuration: "implementation", dependency: daggerAndroid],
+            [configuration: "implementation", dependency: daggerSupport]
+
+    ]
+
+    unitTestsDependencies = [
+            [configuration: "androidTestImplementation", dependency: jUnit],
+            [configuration: "androidTestImplementation", dependency: testRunner],
+            [configuration: "androidTestImplementation", dependency: mockito]
+    ]
+
+    instrumentationTestsDependencies = [
+            [configuration: "androidTestImplementation", dependency: mocitoAndroid],
+            [configuration: "androidTestImplementation", dependency: hamcrest],
+            [configuration: "androidTestImplementation", dependency: esperesso],
+            [configuration: "androidTestImplementation", dependency: testRunner],
+            [configuration: "androidTestImplementation", dependency: powerMock],
+            [configuration: "androidTestImplementation", dependency: powerMockRule],
+            [configuration: "androidTestImplementation", dependency: powerMockApi],
+            [configuration: "androidTestImplementation", dependency: powerMockXstream]
+    ]
+
 }
